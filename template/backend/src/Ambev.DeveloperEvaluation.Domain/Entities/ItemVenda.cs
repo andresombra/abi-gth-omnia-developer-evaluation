@@ -16,6 +16,8 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         public decimal PrecoUnitario { get; private set; }
         public decimal Desconto { get; private set; }
         public decimal ValorTotal => CalcularValorTotal();
+        public Guid VendaId { get; set; } // FK explícita
+        public Venda Venda { get; private set; } = null!;
 
         public ItemVenda(Guid produtoId, string produtoNome, int quantidade, decimal precoUnitario, IDescontoService descontoService)
         {
